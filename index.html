@@ -16,16 +16,26 @@
   <title>The Snake Game</title>
 </head>
 <body>
-  <h1>The snake game</h1>
+  <div class="content">
+  <header>
+    <h1>The snake game</h1>
+  </header>
 
-  <canvas id="snake" width="512" height="512"></canvas>
-
-  <footer>
+  <div class="description">
     <p>Recriação do jogo da cobrinha</p>
     <a href="https://github.com/Pleiterson/snake-game-javascript" target="_blank">
-      Projeto original
+      feito a partir deste projeto
     </a>
-    <p>feito com ❤️ por <a href="http://github.com/lnascc">@lnascc</a></p>
-  </footer>
+    <p>feito com ❤️ por <a href="http://github.com/lnascc" target="_blank">@lnascc</a></p>
+  </div>
+
+  <div class="game">
+    <canvas id="snake" width="512" height="512"></canvas>
+  </div>
+  <div class="counter">
+    <p>score</p>
+    <p id="score">0</p>
+  </div>
+</div>
 </body>
 </html>

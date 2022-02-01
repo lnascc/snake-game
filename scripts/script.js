@@ -2,13 +2,16 @@ let canvas = document.getElementById('snake')
 let context = canvas.getContext('2d')
 let box = 32
 
+let score = document.getElementById('score')
+
+
 let snake = []
 snake[0] = {
-  x: 8 * box,
-  y: 8 * box
+  x: 8 * box, //256
+  y: 8 * box  //256
 }
 
-let direction = 'left'
+let direction = "left"
 
 let food = {
   x: Math.floor(Math.random() * 15 + 1) * box,
@@ -16,13 +19,13 @@ let food = {
 }
 
 function createBg(){
-  context.fillStyle = 'white'
+  context.fillStyle = '#fcfcfc'
   context.fillRect(0, 0, 16 * box, 16 * box)
 }
 
 function createSnake() {
   for(i = 0; i < snake.length; i++) {
-    context.fillStyle = 'green'
+    context.fillStyle = '#07ef1b'
     context.fillRect(snake[i].x, snake[i].y, box, box)
   }
 }
@@ -50,7 +53,8 @@ function startGame() {
 for(i = 1; i < snake.length; i++) {
   if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
     clearInterval(game)
-    alert('Game Over :(')
+    alert(`Perdeu :( | potuação: ${score.innerHTML}`)
+    location.reload()
     
   }
 }
@@ -71,6 +75,8 @@ createFood()
   }else {
     food.x = Math.floor(Math.random() * 15 + 1) * box
     food.y = Math.floor(Math.random() * 15 + 1) * box
+    
+    score.innerHTML = snake.length
   }
 
   let newHead = {
@@ -81,5 +87,6 @@ createFood()
   snake.unshift(newHead)
 }
 
-
 let game = setInterval(startGame, 150)
+
+
