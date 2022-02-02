@@ -3,6 +3,10 @@ let context = canvas.getContext('2d')
 let box = 32
 
 let score = document.getElementById('score')
+let pont = document.getElementById('pont')
+
+const button = document.querySelector('.buttons')
+const modalWrapper = document.querySelector('.modal-wrapper')
 
 
 let snake = []
@@ -17,6 +21,21 @@ let food = {
   x: Math.floor(Math.random() * 15 + 1) * box,
   y: Math.floor(Math.random() * 15 + 1) * box
 }
+
+
+ 
+
+  button.addEventListener("click", close)
+  
+  function open() {
+    modalWrapper.classList.add('active')
+  }
+  
+  function close() {
+    location.reload()
+  }
+  
+
 
 function createBg(){
   context.fillStyle = '#fcfcfc'
@@ -53,9 +72,7 @@ function startGame() {
 for(i = 1; i < snake.length; i++) {
   if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
     clearInterval(game)
-    alert(`Perdeu :( | potuação: ${score.innerHTML}`)
-    location.reload()
-    
+    open()
   }
 }
 createBg()
@@ -77,16 +94,16 @@ createFood()
     food.y = Math.floor(Math.random() * 15 + 1) * box
     
     score.innerHTML = snake.length
+    pont.innerHTML = `pontuacao final: ${snake.length}`
   }
 
   let newHead = {
     x: snakeX,
     y: snakeY
   }
-
+  
   snake.unshift(newHead)
 }
-
 let game = setInterval(startGame, 150)
 
 

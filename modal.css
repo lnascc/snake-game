@@ -1,0 +1,55 @@
+.modal-wrapper.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: rgba(4, 9, 17, .8);
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-wrapper .modal {
+  padding: 18px;
+  width: 90%;
+  margin: auto;
+  background-color: rgb(26, 23, 23);
+  border-radius: 8px;
+  text-align: center;
+  font-family: "Dongle";
+}
+
+.modal-wrapper .modal h2 {
+  font-size: 5rem;
+  color: rgb(219, 10, 10);
+}
+
+.modal-wrapper .modal p {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.modal-wrapper .modal .buttons {
+  padding: 1px 80px;
+  font-family: "Dongle";
+  font-size: 2.4rem;
+
+  border-radius: 8px;
+  background-color: rgb(18, 179, 4);
+  color: #fff;
+
+  cursor: pointer;
+
+  transition: filter .2s;
+}
+
+.modal-wrapper .modal .buttons:hover {
+  filter: brightness(1.2);
+}
