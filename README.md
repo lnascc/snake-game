@@ -16,4 +16,4 @@
 ![gif joguinho](/img/snakegame.gif)
 
 ### Adicionei uma modal que aparece quando perdemos.
-![game over](/img/gameover.png)
+![game over](/img/gameover.PNG)
