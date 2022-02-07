@@ -45,13 +45,13 @@ function createBg(){
 function createSnake() {
   for(i = 0; i < snake.length; i++) {
     context.fillStyle = '#07ef1b'
-    context.fillRect(snake[i].x, snake[i].y, box, box)
+    context.fillRect(snake[i].x, snake[i].y, 30, 30)
   }
 }
 
 function createFood() {
   context.fillStyle = '#91EEFF'
-  context.fillRect(food.x, food.y, box, box)
+  context.fillRect(food.x, food.y, 30, 30)
 }
 
 document.addEventListener('keydown', update);
@@ -64,10 +64,10 @@ function update(event) {
 }
 
 function startGame() {
-  if (snake[0].x > 15 * box && direction == "right") snake[0].x = 0
-  if (snake[0].x < 0 && direction == 'left') snake[0].x = 16 * box
-  if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0
-  if (snake[0].y < 0 && direction == 'up') snake[0].y = 16 * box
+  if (snake[0].x > 15 * box) snake[0].x = 0
+  if (snake[0].x < 0) snake[0].x = 15 * box
+  if (snake[0].y > 15 * box) snake[0].y = 0
+  if (snake[0].y < 0) snake[0].y = 15 * box
 
 for(i = 1; i < snake.length; i++) {
   if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
@@ -82,7 +82,7 @@ createFood()
   let snakeX = snake[0].x
   let snakeY = snake[0].y
 
-  if(direction == 'right') snakeX += box;
+  if(direction == 'right') snakeX += box ;
   if(direction == 'left') snakeX -= box;
   if(direction == 'up') snakeY -= box;
   if(direction == 'down') snakeY += box;
@@ -104,6 +104,6 @@ createFood()
   
   snake.unshift(newHead)
 }
-let game = setInterval(startGame, 150)
+let game = setInterval(startGame, 200)
 
 
